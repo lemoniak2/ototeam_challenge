@@ -1,9 +1,14 @@
 OTOTEAM Debugging Challenge
 ===========================
 
+#### Instalacja
+
 ```
+git clone git@github.com:miksturait/ototeam_challenge.git
+cd ototeam_challenge
 cp config/database.yml.example config/database.yml
 rake db:migrate
+rake db:seed
 rake db:migrate RAILS_ENV=test
 guard
 ```
