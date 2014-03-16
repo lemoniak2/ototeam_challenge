@@ -1,0 +1,21 @@
+.page-header
+  = icon_link_to :plus, t('.new_group'), new_group_path, class: 'btn btn-primary'
+  %h1= t('.title')
+
+= search_form_for search, wrapper: :search_form do |f|
+  = f.input :name_cont, as: :string, placeholder: t('.search_form.name_contains'), wrapper_html: { class: 'col-sm-3' }
+  .form-group
+    = f.button :submit
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        - %w(name friends_count actions).each do |column|
+          %th= Group.human_attribute_name(column)
+    %tbody
+      = render filtered_groups
+
+.text-center
+  .text-muted= page_entries_info filtered_groups
+  = paginate filtered_groups

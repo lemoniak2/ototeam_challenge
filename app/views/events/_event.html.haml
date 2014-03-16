@@ -1,0 +1,11 @@
+%tr
+  %td= event.state
+  %td= event.name
+  %td= event.start_at
+  %td= event.attendees_count
+  %td= event.limit_label
+  %td= event.invite_from
+  %td
+    = link_to t('show'), event
+    = link_to t('edit'), edit_event_path(event)
+    = link_to t('destroy'), event, data: { confirm: t('confirmation') }, method: :delete

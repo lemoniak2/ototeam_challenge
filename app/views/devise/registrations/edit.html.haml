@@ -1,0 +1,22 @@
+.page-header
+  %h1= t('devise.registrations.edit_title')
+
+= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'form-horizontal' }) do |f|
+  = f.error_notification
+  = f.simple_fields_for :own_profile do |profile_form|
+    = profile_form.input :fullname
+    = profile_form.input :phone
+  = f.input :locale, as: :radio_buttons, collection: I18n.available_locales
+  = f.input :email, required: true, autofocus: true
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %p
+      Currently waiting confirmation for: #{resource.unconfirmed_email}
+  = f.input :password, autocomplete: "off", hint: t('devise.registrations.leave_password_blank'), required: false
+  = f.input :password_confirmation, required: false
+  = f.input :current_password, hint: t('devise.registrations.need_current_password'), required: true
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.button :submit, t('update'), class: 'btn-primary'
+%p
+  = link_to t('devise.registrations.cancel_account'), registration_path(resource_name), data: { confirm: t('confirmation') }, method: :delete
+= link_to t('back'), :back

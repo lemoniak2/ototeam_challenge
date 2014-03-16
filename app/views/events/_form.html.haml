@@ -1,0 +1,15 @@
+= simple_form_for event, html: { class: 'form-horizontal' } do |f|
+  = render 'shared/object_errors', object: event
+
+  = f.input :name
+  = f.input :description
+  = f.input :start_at
+  = f.input :invite_from
+  = f.input :invite_to
+  = f.input :attendees_min_count
+  = f.input :attendees_max_count
+  = f.input :minutes_for_answer
+  = f.input :public_attendees_list
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.button :submit, class: 'btn-primary'
