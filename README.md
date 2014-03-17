@@ -4,8 +4,10 @@ OTOTEAM Debugging Challenge
 Instalacja
 ----------
 
+Fork https://github.com/miksturait/ototeam_challenge
+
 ```
-git clone git@github.com:miksturait/ototeam_challenge.git
+git clone git@github.com:wasz_nick/ototeam_challenge.git
 cd ototeam_challenge
 cp config/database.yml.example config/database.yml
 rake db:migrate
